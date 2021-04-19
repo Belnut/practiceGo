@@ -1,0 +1,97 @@
+go언어 특징
+1. 이식성이 뛰어남
+2. 절차형, 동시성, 분산프로그래밍 지원
+3. 가비지 컬랙션 지원
+4. 전처리기 사용하지 않음 , 컴파일 속도 빠름
+5. 웹 애플리케이션 제작 가능(호우?)
+6. 패키지 제공
+7. 정적링크 사용
+8. GUI 없이 개발 디버깅 테스킹 가능
+9 유니코드 제공 
+10 직교성 뛰어남
+
+
+단점
+OOP 미지원, 합성으로 상석 흉내 가능
+
+전처리기 : 문법에 대해 전혀 모른다는 것 (의도적이지 않은 에러 발생 가능성 존재)
+directive , pragma
+
+
+godoc 유틸리티
+예시 : 
+godoc fmt Printf 
+godoc fmt
+godoc 패키지 [함수명]
+최신버전에서는 godoc를 지원하지 않는다
+따로 설치해야함
+해당 실행시 document app aplication이 실행되는 방식
+해당 콘솔 사용 불가
+
+
+golang 특징 1
+미사용 pkg 는 포함하지 말것, 컴파일에러
+
+golang 특징 2
+세미콜론의 자동 입력
+
+func main(){
+	
+}
+문제없음
+func main()
+{
+	
+}
+문제있음
+함수 내용이 없어도 상관없음
+
+패키지 다론로드 위치 GOPATH
+go env에서 확인 가능
+inport 시  GOPATH를 기준으로 입력할 것
+
+삭제방법
+go clean --i -v -x 패지키 위치
+오브젝트파일 및 get 시 설치되는 중간파일 식제
+rm -rf 로 src 삭제 필요
+
+import 시 {}  가 아닌 ()
+if else 시 {} 생략 불가능, else 위치는 if {}가 끝나는 라인에 선언할 것
+stdin arguments 는 os.Args에 저장됨 ( String[] )
+
+:=, = 차이점
+:= var 변수 선언 포함
+= 이미 선언된 변수에 재할당
+
+2개 이상의 변수에 값을 넣을 시 하나라도 새로 선언한 변수라면 := 사용
+i, k := 3, 4
+j, k := 4, 5
+
+리디렉션
+:표준 입출력를 다른 곳으로 변경할 수 있는 기능
+
+넘버>경로 : 해당 경로로 stdout 값 출력
+넘버 0 = stdin, 1 or ' ' = stdout, 2 = stderr
+넘버1>&넘버2 = 넘버1과 넘버2 를 동일하게 설정함
+
+log 설정 확인
+우분투 리눅스의 경우 18.04.4 LTS 기준 /etc/rsyslog.d/50-default.conf에 정리되어 있음
+
+우분투에는 cisco.log 가 없으며 message로 로그 저장을 하도록 설정해야 한다
+/etc/rsyslog.d/50-default.conf 파일의 info 부터 4줄의 주석을 해제한다
+이후 sudo systemctl restart rsyslog 를 사용하여 리셋한다
+
+이후 cisco.log 대신 message를 넣어 확인하면 된다.
+
+log 패키지의 Fatal 함수의 경우 프로그램을 강제종료함
+종료시 exit status 1 를 출력 
+종료직전에 로그를 남긴다
+
+Panic 의 경우 저수준 문제까지 잡아줌 (java 에러처럼 나옴 몇번줄 에서 종료가 되었는지 까지 나오게 됨 )
+콘솔과 로그파일 두군데 모두 기록이 남게 된다.
+
+func 선언법
+func 함수명 (매개변수명 자료형) 반환형 {
+	함수내용
+	return 반환값
+}
