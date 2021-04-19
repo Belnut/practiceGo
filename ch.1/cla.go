@@ -6,8 +6,8 @@ import (
 	"strconv"
 )
 
-func main(){
-	if len(os. Args) == 1 {
+func main() {
+	if len(os.Args) == 1 {
 		fmt.Println("PLZ give one or more floats.")
 		os.Exit(1)
 	}
