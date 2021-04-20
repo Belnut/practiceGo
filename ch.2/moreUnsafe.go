@@ -14,7 +14,7 @@ func main () {
 	for i := 0 ; i< len(array) -1 ; i++ {
 		pointer = (*int)(unsafe.Pointer(memoryAdress))
 		fmt.Print(*pointer, " ")
-		memoryAdress = uintptr(unsafe.Pointer(pointer)) +unsafe.Sizeof(array[0]) 
+		memoryAdress = uintptr(unsafe.Pointer(pointer)) + unsafe.Sizeof(array[0])
 	}
 
 	fmt.Println()

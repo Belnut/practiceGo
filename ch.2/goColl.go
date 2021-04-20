@@ -35,8 +35,7 @@ func main () {
 		if s == nil {
 			fmt.Println("Operation failed!")
 		}
-
-		time.Sleep(5 * time.Second)
+		time.Sleep(1 * time.Second)
 	}
 	printStats(mem)
 }
