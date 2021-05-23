@@ -7,7 +7,7 @@ import (
 )
 
 type Tree struct {
-	Left *Tree
+	Left  *Tree
 	Value int
 	Right *Tree
 }
@@ -31,7 +31,7 @@ func create(n int) *Tree {
 	return t
 }
 
-func insert (t *Tree, v int) *Tree {
+func insert(t *Tree, v int) *Tree {
 	if t == nil {
 		return &Tree{nil, v, nil}
 	}
