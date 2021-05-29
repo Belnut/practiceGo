@@ -10,6 +10,7 @@ type heapFloat32 []float32
 func (n *heapFloat32) Pop() interface{} {
 	old := *n
 	x := old[len(old)-1]
+	new := old[0 : len(old) -1]
 	*n = new
 	return x
 }
@@ -40,6 +41,7 @@ func main() {
 	myHeap.Push(float32(-100.2))
 	myHeap.Push(float32(0.2))
 	fmt.Printf("Heap size: %d\n", size)
+	fmt.Printf("%v\n", myHeap)
 	heap.Init(myHeap)
 	fmt.Printf("%v\n", myHeap)
 }
